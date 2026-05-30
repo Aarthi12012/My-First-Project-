@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Surprise for Mom!</title>
+    <style>
+        /* Cute and elegant background with soft pastel colors */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ffe5ec 0%, #ffc2d1 50%, #f0e6ff 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Container card for the content */
+        .card {
+            background-color: rgba(255, 255, 255, 0.92);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 550px;
+            width: 100%;
+            transition: all 0.5s ease;
+            border: 2px solid #ffb3c6;
+        }
+
+        h1 {
+            color: #ff4d6d;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #4a4a4a;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        /* Styling for the options/buttons */
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .option-btn {
+            background-color: #fff;
+            border: 2px solid #ff85a1;
+            color: #ff4d6d;
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .option-btn:hover {
+            background-color: #ff85a1;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Next Button styling */
+        .next-btn {
+            background-color: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .next-btn:hover {
+            background-color: #c9184a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 77, 109, 0.6);
+        }
+
+        /* Soft decorative element */
+        .hearts {
+            font-size: 2rem;
+            color: #ff4d6d;
+            margin-bottom: 15px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Hidden class to handle slide transitions */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="hearts">💖✨💖</div>
+        
+        <div id="content-area">
+            <div id="screen-1">
+                <h1>Hi, My Dearest Amma!</h1>
+                <p>I made this special digital surprise just for you to see how well we know each other and to celebrate you! Press the button below to start.</p>
+                <button class="next-btn" onclick="nextScreen(2)">Start Quiz</button>
+            </div>
+
+            <div id="screen-2" class="hidden">
+                <h1>Quiz Time!</h1>
+                <p><strong>Question:</strong> What do you think your daughter loves most about you?</p>
+                <div class="quiz-options">
+                    <button class="option-btn" onclick="selectOption('your cooking')">Your amazing cooking</button>
+                    <button class="option-btn" onclick="selectOption('your kindness')">Your endless kindness and love</button>
+                    <button class="option-btn" onclick="selectOption('everything')">Absolutely everything you do for me</button>
+                </div>
+            </div>
+
+            <div id="screen-3" class="hidden">
+                <h1>Let's Talk Honestly...</h1>
+                <p>Never think of yourself as "just a housewife" or feel restricted by that word! Look at everything you manage so beautifully. If anyone tries to join us together and say, "Look at what they are doing, what are you even doing?", just shut those thoughts down completely!</p>
+                <button class="next-btn" onclick="nextScreen(4)">Next</button>
+            </div>
+
+            <div id="screen-4" class="hidden">
+                <h1>Turn Off the Noise!</h1>
+                <p>If we start comparing or letting people put us down, they will just take advantage and boss us around. You are running this entire home perfectly. Let's switch off that negative mindset completely right now!</p>
+                <button class="next-btn" onclick="nextScreen(5)">Next</button>
+            </div>
+
+            <div id="screen-5" class="hidden">
+                <h1>I Love You, Mom!</h1>
+                <p>You don't need to fit into anyone else's boxes or worry about what isn't matching up. You are the pillar of our family, and I am so lucky to be your daughter. Keep smiling always!</p>
+                <div style="font-size: 3rem;">👩‍👧❤️</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to navigate between screens
+        function nextScreen(screenNumber) {
+            // Hide all screens
+            document.getElementById('screen-1').classList.add('hidden');
+            document.getElementById('screen-2').classList.add('hidden');
+            document.getElementById('screen-3').classList.add('hidden');
+            document.getElementById('screen-4').classList.add('hidden');
+            document.getElementById('screen-5').classList.add('hidden');
+
+            // Show the requested screen
+            document.getElementById('screen-' + screenNumber).classList.remove('hidden');
+        }
+
+        // Function specifically for handling the quiz option click
+        function selectOption(answer) {
+            alert("You guessed right! I definitely love " + answer + "! Now let's move to the next part.");
+            nextScreen(3);
+        }
+    </script>
+</body>
+</html>
